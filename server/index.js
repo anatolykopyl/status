@@ -17,7 +17,7 @@ app.use(Cors());
 app.get('/update', (req, res) => {
     var id = statusIds[Math.floor(Math.random() * statusIds.length)];
     let url = `https://api.vk.com/method/users.setCovidStatus?access_token=${process.env.TOKEN}&status_id=${id}&v=5.103`;
-    httpsReq(url).then(() => {
+    httpsReq(url).then((response) => {
         console.log(response);
         res.redirect("https://status.anatolykopyl.ru");
     });
