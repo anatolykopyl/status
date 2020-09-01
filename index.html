@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Статус</title>
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <a href="http://status.anatolykopyl.ru/update">Обнови мой эмодзи статус!</a>
+    <a class="big" href="http://status.anatolykopyl.ru:5001/update">Обновить Толин эмодзи статус!</a>
+    <div class="links-container">
+        <p>Другие мои сайты:</p>
+        <div class="links">
+            <a href="https://anatolykopyl.ru">Обо мне</a>
+            <a href="https://atolchek.anatolykopyl.ru">Булочная</a>
+            <a href="https://groupanal.ru">Анализ Групп</a>
+        </div>
+    </div>
+
+    <a id="hint-link" onclick="showHint()">Что это?</a>
+    <div id="hint-div">
+        При каждом нажатии на большую кнопку мне дается новый случайно выбранный эмодзи статус. 
+        Открой <a href="https://vk.com/akopyl" target="_blank">vk.com/akopyl</a>, нажми на кнопку на этом сайте и обнови мою страницу!
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
