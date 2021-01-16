@@ -1,13 +1,13 @@
 * {
     font-family: 'Open Sans', sans-serif;
 }
-html {
-    height: 100%;
-}
-
-body {
+html, body {
     height: 100%;
     margin: 0px;
+}
+
+.main {
+    height: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -75,6 +75,7 @@ div.links a:hover {
     font-size: small;
     text-decoration: underline;
     z-index: 10;
+    cursor: pointer;
 }
 
 #hint-div {
