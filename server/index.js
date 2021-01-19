@@ -1,6 +1,7 @@
 import Express from "express";
 import Cors from "cors";
 import path from "path";
+import fs from "fs";
 const __dirname = path.resolve();
 
 import dotenv from 'dotenv';
@@ -17,17 +18,12 @@ app.use(Cors());
 
 app.get('/update', (req, res) => {
     var id = statusIds[Math.floor(Math.random() * statusIds.length)];
-    let token;
-    fs.readFile('../get-vk-token/token.txt', 'utf8', function(error, data) {
-      if (error) {
-        console.log(error);
-      }
-      token = data;
-    });
+    let token = fs.readFileSync('../../get-vk-token/token.txt', 'utf8');
+    console.log(token);
     let url = `https://api.vk.com/method/status.setImage?access_token=${token}&status_id=${id}&v=5.103`;
     httpsReq(url).then((response) => {
         console.log(response);
-        //res.redirect("https://status.anatolykopyl.ru");
+        res.redirect("https://status.anatolykopyl.ru");
         res.send();
     });
 });
