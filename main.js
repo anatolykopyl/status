@@ -15,4 +15,8 @@ var xhttp = new XMLHttpRequest();
 function send() {
     xhttp.open("GET", "http://status.anatolykopyl.ru:5001/update", true);
     xhttp.send();
+    confetti({
+      particleCount: 150,
+      spread: 100
+    });
 }

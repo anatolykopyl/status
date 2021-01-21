@@ -2,6 +2,7 @@ import Express from "express";
 import Cors from "cors";
 import path from "path";
 import fs from "fs";
+import https from "https";
 const __dirname = path.resolve();
 
 import dotenv from 'dotenv';
@@ -23,7 +24,6 @@ app.get('/update', (req, res) => {
     let url = `https://api.vk.com/method/status.setImage?access_token=${token}&status_id=${id}&v=5.103`;
     httpsReq(url).then((response) => {
         console.log(response);
-        res.redirect("https://status.anatolykopyl.ru");
         res.send();
     });
 });
@@ -32,8 +32,8 @@ app.use(Express.static(path.join(__dirname, 'public')));
 
 if (process.env.NODE_ENV === 'production') {
   https.createServer({
-      key: fs.readFileSync('/etc/letsencrypt/live/studybuddy.top/privkey.pem'),
-      cert: fs.readFileSync('/etc/letsencrypt/live/studybuddy.top/cert.pem')
+      key: fs.readFileSync('/etc/letsencrypt/live/status.anatolykopyl.ru/privkey.pem'),
+      cert: fs.readFileSync('/etc/letsencrypt/live/status.anatolykopyl.ru/fullchain.pem')
   }, app)
   .listen(port, () => console.log('Prod server started on ' + port));
 } else {
