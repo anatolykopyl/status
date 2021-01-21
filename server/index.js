@@ -30,5 +30,12 @@ app.get('/update', (req, res) => {
 
 app.use(Express.static(path.join(__dirname, 'public')));
 
-app.listen(port, () => console.log('Dev server started on ' + port));
-
+if (process.env.NODE_ENV === 'production') {
+  https.createServer({
+      key: fs.readFileSync('/etc/letsencrypt/live/studybuddy.top/privkey.pem'),
+      cert: fs.readFileSync('/etc/letsencrypt/live/studybuddy.top/cert.pem')
+  }, app)
+  .listen(port, () => console.log('Prod server started on ' + port));
+} else {
+  app.listen(port, () => console.log('Dev server started on ' + port));
+}
